@@ -2,11 +2,16 @@ import { parseRequestUrl } from "../util.js";
 
 const CafePrepaScreen ={
    
-       
+    after_render:()=>{
+      
+                const {id,ressource} =  parseRequestUrl();
+                if(ressource ==="prepa"){
+                    setTimeout( ()=>{document.location.hash="valider";}, id*1000);
+                    
+                }
+               
+              },
        render:()=>{
-        
-        const {id} =  parseRequestUrl();
-        console.log(id);
         return`<div class="homepage">
         <div class="cafehead">
             <img src="./images/americano.jpg" alt="americano" style="width:55px"/>
@@ -14,6 +19,7 @@ const CafePrepaScreen ={
         </div>
         <p>VOTRE MEILLEUR CAFE PAR EXCELLENCE!!!!!</p>
         <div class="commandeTB">
+            <div> <h4>VOTRE CAFE EST EN PREPARATION VEUILLEZ PATIENTER UN INSTANT S'IL VOUS PLAIT!!!</h4></div>
            <div class="cHeadP">
            </div>
            <div class="Ch4">
@@ -22,13 +28,7 @@ const CafePrepaScreen ={
                     <div class="btnFP">
                         <progress>Valider</progress>
                     </div>
-                    <div class="btnP">
-                        <button class="val"></button>
-                        <button class="An"></button>
-                        <button class="An"></button>
-                        <button class="An"></button>
-                        <button class="An"></button>
-                    </div>
+                   
                 </form>
            </div>
           

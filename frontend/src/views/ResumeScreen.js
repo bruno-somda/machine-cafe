@@ -1,6 +1,9 @@
-import {data} from "../../data.js";
+import { getData } from "../storage.js";
+
 const ResumeScreen ={
+   
     render:()=>{
+        const data = getData();
         return`<div class="homepage">
         <div class="cafehead">
             <img src="./images/americano.jpg" alt="americano" style="width:55px"/>

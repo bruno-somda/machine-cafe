@@ -233,7 +233,7 @@ body{
 }
 /*********************Cafe**********************/
 
-.cfeTB{
+.cafeTB{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -243,11 +243,26 @@ body{
 .Ca{
    
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
    width: 100%;
 }
+#error{
+    background-color: red;
+    color: #f1efdd;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+#error h2{
+    font-size: 1.2rem;
+}
 .Caf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
     margin-top: -1rem;
     width: 100%;
 }
@@ -272,7 +287,6 @@ body{
     align-items: center;
     text-align: center;
     margin-top: 5px;
-    width: 60%;
     margin-bottom: 2rem;
 }
 .btnCaF button{
@@ -381,13 +395,26 @@ body{
     background-color: red;
 }
 /********************CaféOk***********************/
+.commandeOk{
+    margin: 0 auto;
+    width: 230px;
+}
 .CafOk{
-    margin-top: -2rem;
+    margin-top: -4rem;
    display: flex;
   justify-content: center;
   align-items: center;
   height: 150px;
   width: 230px;
+}
+.CImg{
+    width: 230px;
+    height: 220px;
+    background-image: url("./images/h.png");
+    background-repeat: no-repeat;
+    background-size:80%;
+   margin-top: -1.5rem;
+    
 }
 .CafOk a{
     text-align: center;
@@ -426,45 +453,19 @@ body{
     text-align: center;
     text-decoration: none;
 }
-/******************commande**********************/
+/****************** demande commande**********************/
 .commandeReject{
     margin: 0 auto;
     width: 230px;
 }
 .vImg{
-    width: 230px;
-    height: 220px;
-    background-image: url("./images/cafe_pret_2.jpg");
+    width: 180px;
+    height: 180px;
+    background-image: url("./images/Sad.png");
     background-repeat: no-repeat;
     background-size:100%;
-   margin-top: -3rem;
+   margin-top: -1rem;
     
-}
-.Ch4b{
-    margin-top: -1rem;
-   display: flex;
-   flex-direction: column;
-}
-.Ch4b h4{
-    text-align: center;
-    font-size: 15px;
-    width: 100%;
-    background-color: var(--black-color);
-    color: var(--yellow-color);
-}
-.Ch4f{
-    margin-top: -1rem;
-    width: 100%;
-}
-.Ch4fn input{
-    width: 100%;
-    border: 2px solid var(--yellow-color);
-    height: 30px;
-    border-radius: 5px;
-}
-.Ch4f input::placeholder{
-    color: var(--yellow-color);
-    text-align: center;
 }
 .btnF{
     display: flex;
@@ -487,6 +488,41 @@ body{
 .An{
     background-color: red;
 }
+/******************commande**********************/
+.commandeValider{
+    margin: 0 auto;
+    width: 230px;
+}
+.vImg{
+    width: 230px;
+    height: 200px;
+    background-image: url("./images/cafe_pret_2.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+   margin-top: -1rem;
+    
+}
+.Ch4b{
+    margin-top: -1rem;
+   display: flex;
+   flex-direction: column;
+}
+.btnF{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.btnF a{
+    border-radius: 5px;
+    width: 100px;
+    border: none;
+    color: var(--white-color);
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
 /****************footer*************************/
 .d-block{
     position: absolute;

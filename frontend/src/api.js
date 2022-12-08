@@ -1,9 +1,10 @@
 import {data} from "../data.js"
+import { setContainerCommande, setData } from "./storage.js";
 
 export const sendCommande = async(id,coffeCommandes)=>{
  
    
-  let water=0,milk=0,coffe=0,chocolate=0,cout=0,sucre=0;
+  let water=0,milk=0,coffe=0,chocolate=0,cout=0,sucre=0,reste;
   let comandes= Object.keys(coffeCommandes)
 
   let typeCafes = comandes.map(d=> {return {cafe:data.typeCoffe.filter(x=>x.name===d)[0],qty:Number(coffeCommandes[d])}});
@@ -24,6 +25,7 @@ export const sendCommande = async(id,coffeCommandes)=>{
         data.chocolate = data.chocolate - chocolate;
         data.coffe = data.coffe - coffe;
         data.coutTotal += cout;
+        reste =id -cout;
         data.typeCoffe= data.typeCoffe.map(item=>{
          for(let i= 0; i<comandes.length;i++){
            if(item.name===comandes[i]){
@@ -33,14 +35,17 @@ export const sendCommande = async(id,coffeCommandes)=>{
          return item;
         
         });
+        setData(data);
        }else{
-        document.location.hash=`commande`;
+       // document.location.hash=`commande`;
         return {Msg:"Votre solde est Inferieur a votre commandes"};
        }
     }else{
       document.location.hash=`resume`;
       return {Msg:"Insuffisance d'Ingredients"};
   }
+  let nombre = comandes.length;
+  setContainerCommande({reste,cout,nombre});
   document.location.hash=`prepa/${comandes.length}`;
   }
   

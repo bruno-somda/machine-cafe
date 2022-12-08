@@ -1,6 +1,6 @@
 const CommandeScreen ={
     after_render:()=>{
-
+        
         document.getElementById("An").addEventListener("click",()=>{
             document.getElementById("Ch4f").addEventListener("submit",async(e)=>{
                 e.preventDefault();
@@ -8,7 +8,7 @@ const CommandeScreen ={
                document.location.hash ="cafereject/"+ price;
             });
         });
-        
+
         document.getElementById("val").addEventListener("click",()=>{
             document.getElementById("Ch4f").addEventListener("submit",async(e)=>{
                 e.preventDefault();

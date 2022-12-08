@@ -5,14 +5,25 @@ import {data} from "../../data.js";
 const CafeScreen = {
 
     after_render:()=>{
-       
+        
+/************Annuler le choix des types de cafés****** */
+        const {id} =  parseRequestUrl();
+        document.getElementById("An").addEventListener("click",()=>{
         document
         .getElementById("commande-form")
         .addEventListener("submit",async(e)=>{
           e.preventDefault();
-          const {id} = await parseRequestUrl();
+          document.location.hash ="cafereject/"+ id;
+        });
+        });
+        /************Fin Annuler le choix des types de cafés****** */
+/************Valider le choix des types de cafés****** */
+        document.getElementById("val").addEventListener("click",()=>{
+        document
+        .getElementById("commande-form")
+        .addEventListener("submit",async(e)=>{
+          e.preventDefault();
           let dataFilter= {}
-        
          let coffeCommande= { 
             mocha: document.getElementById("mocha").value,
             cafeViennoise: document.getElementById("cafeViennoise").value,
@@ -22,7 +33,6 @@ const CafeScreen = {
             americano: document.getElementById("americano").value,
             chocolatChaud: document.getElementById("chocolatChaud").value
         }
-
          for(let coffe in coffeCommande){
             if(coffeCommande[coffe]>0){
               dataFilter[coffe]= coffeCommande[coffe];
@@ -31,10 +41,15 @@ const CafeScreen = {
            // send commande client
          const data = await sendCommande(id,dataFilter);
            //end  send commande client
-           alert(data.Msg);
+         
+           let h2 = document.createElement("h2");
+           h2.innerText = data.Msg;
+           let divError = document.getElementById("error");
+           divError.appendChild(h2)
         });
-        
-           
+/************Fin Valider le choix des types de cafés****** */
+            
+        });
       },
 
     render:()=>{
@@ -46,8 +61,10 @@ const CafeScreen = {
                     </div>
                     <p>VOTRE MEILLEUR CAFE PAR EXCELLENCE!!!!!</p>
                     <div class="cafeTB">
-                        <div> <h4>VOTRE CAFE EST EN PREPARATION VEUILLEZ PATIENTER UN INSTANT S'IL VOUS PLAIT!!!</h4></div>
+                        <div> <h4>BONJOUR!!!VEUILLEZ SELECTIONNER VOTRE CHOIX CAFE!!!</h4></div>
                         <div class="Ca">
+                                <div id="error">
+                                </div>
                                 <form id="commande-form" class="Caf">
                                     ${
                                         data.typeCoffe.map(coffe=>(`<div class="input">
@@ -59,8 +76,8 @@ const CafeScreen = {
                                        )
                                     }
                                     <div class="btnCaF">
-                                        <button type="submit" class="val">Valider</button>
-                                        <button class="An">Annuler</button>
+                                        <button id="val" type="submit" class="val">Valider</button>
+                                        <button id="An" class="An">Annuler</button>
                                     </div>
                                 </form>
                         </div>
