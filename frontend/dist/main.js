@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=async()=>{document.getElementById("#header-container"),document.getElementById("#main-container"),console.log("hello world")};window.addEventListener("load",e),window.addEventListener("hashchange",e)})();
